@@ -70,6 +70,8 @@ it('should support arbitrary values for various background utilities', () => {
           <div class="bg-[#ff0000]"></div>
           <div class="bg-[rgb(var(--bg-color))]"></div>
           <div class="bg-[hsl(var(--bg-color))]"></div>
+          <%= content_tag(:div, class: %w[text-[#bada55]]) {} %>
+          <%= content_tag(:div, class: ["text-[#a55bad]"]) {} %>
 
           <!-- By explicit type -->
           <div class="bg-[url:var(--image-url)]"></div>
@@ -113,6 +115,16 @@ it('should support arbitrary values for various background utilities', () => {
 
       .bg-\[url\:var\(--image-url\)\] {
         background-image: var(--image-url);
+      }
+
+      .text-\[\#bada55\] {
+        --tw-text-opacity: 1;
+        color: rgb(186 218 85 / var(--tw-text-opacity));
+      }
+
+      .text-\[\#a55bad\] {
+        --tw-text-opacity: 1;
+        color: rgb(165 91 173 / var(--tw-text-opacity));
       }
     `)
   })
